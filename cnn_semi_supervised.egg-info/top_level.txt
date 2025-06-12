@@ -1,0 +1,6 @@
+configs
+data
+logs
+model_weights
+src
+utils
