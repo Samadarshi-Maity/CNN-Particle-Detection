@@ -185,14 +185,14 @@ class ResNetHeatmap(nn.Module):
 
         # Final layer (no sigmoid)
         self.out = nn.Conv2d(16, out_channels, kernel_size=1)
-
+    # Arranged the neural network layers correctly
     def _make_layer(self, out_channels, blocks, downsample):
         layers = [ResidualBlock(self.in_channels, out_channels, downsample)]
         self.in_channels = out_channels
         for _ in range(1, blocks):
             layers.append(ResidualBlock(out_channels, out_channels))
         return nn.Sequential(*layers)
-
+    
     def forward(self, x):
         x = self.stem(x)
         x = self.layer1(x)
@@ -204,5 +204,5 @@ class ResNetHeatmap(nn.Module):
         x = self.up3(x)
         x = self.up4(x)
 
-        x = self.out(x)  # raw logits
+        x = self.out(x)
         return x
