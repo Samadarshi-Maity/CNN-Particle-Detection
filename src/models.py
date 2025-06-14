@@ -6,7 +6,7 @@ import numpy as np
 
 class ParticleDataset():
     '''
-    Class: To read the images and pass it into the dataloader for pytorch.
+    Class: To read the images and pass it into the dataloader for PyTorch.
     Since the images are sequences of moving particles, we shuffle the frames 
     to prevent the NN from learning the physics of the trajectories and purely focus
     the features and overlap within each image.
@@ -143,6 +143,7 @@ class ResidualBlock(nn.Module):
         out += identity
         return self.relu(out)
 
+# Class to work with the ResNet architecture.
 class ResNetHeatmap(nn.Module):
     def __init__(self, out_channels=1):
         super().__init__()
@@ -185,6 +186,7 @@ class ResNetHeatmap(nn.Module):
 
         # Final layer (no sigmoid)
         self.out = nn.Conv2d(16, out_channels, kernel_size=1)
+        
     # Arranged the neural network layers correctly
     def _make_layer(self, out_channels, blocks, downsample):
         layers = [ResidualBlock(self.in_channels, out_channels, downsample)]
