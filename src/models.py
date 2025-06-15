@@ -112,7 +112,7 @@ class UNetHeatmap(nn.Module):
         x = self.dec1(x)            # [B, 32, H, W]
 
         x = self.final_conv(x)      # [B, out_channels, H, W]
-        return x # do not use a sigmoid here ... we will loose information of subpixel accuracy.
+        return x # do not use a sigmoid here ... for better training performance 
     
 # define a ResNet model 
 # ..... this is still on the experimental side...... is larger but shows a similar performance as the 
