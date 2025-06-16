@@ -6,7 +6,7 @@ import numpy as np
 
 class ParticleDataset():
     '''
-    Class: To read the images and pass it into the dataloader for PyTorch.
+    Class: To read the images and pass it into the dataloader for pytorch.
     Since the images are sequences of moving particles, we shuffle the frames 
     to prevent the NN from learning the physics of the trajectories and purely focus
     the features and overlap within each image.
@@ -112,10 +112,11 @@ class UNetHeatmap(nn.Module):
         x = self.dec1(x)            # [B, 32, H, W]
 
         x = self.final_conv(x)      # [B, out_channels, H, W]
-        return x # do not use a sigmoid here ... for better training performance 
+        return x # do not use a sigmoid here ... we will loose information of subpixel accuracy.
     
-# ............................................define a ResNet model ............................................
-# ..... this is still on the experimental side...... is larger and slower than UNet shows a similar performance to UNet
+# define a ResNet model 
+# ..... this is still on the experimental side...... is larger but shows a similar performance as the 
+
 # Build a residual block 
 class ResidualBlock(nn.Module):
     def __init__(self, in_channels, out_channels, downsample=False):
@@ -143,7 +144,6 @@ class ResidualBlock(nn.Module):
         out += identity
         return self.relu(out)
 
-# Class to work with the ResNet architecture.
 class ResNetHeatmap(nn.Module):
     def __init__(self, out_channels=1):
         super().__init__()
@@ -186,17 +186,14 @@ class ResNetHeatmap(nn.Module):
 
         # Final layer (no sigmoid)
         self.out = nn.Conv2d(16, out_channels, kernel_size=1)
-        
-    # Make the Residual block layers.
+
     def _make_layer(self, out_channels, blocks, downsample):
         layers = [ResidualBlock(self.in_channels, out_channels, downsample)]
         self.in_channels = out_channels
-        
         for _ in range(1, blocks):
             layers.append(ResidualBlock(out_channels, out_channels))
         return nn.Sequential(*layers)
 
-    # forward function to put the NN architecture together
     def forward(self, x):
         x = self.stem(x)
         x = self.layer1(x)
@@ -208,5 +205,5 @@ class ResNetHeatmap(nn.Module):
         x = self.up3(x)
         x = self.up4(x)
 
-        x = self.out(x)
+        x = self.out(x)  # raw logits
         return x
