@@ -1,0 +1,24 @@
+# config.yaml contains the path to all the directory
+
+# add all the file paths here.... @ Samadarshi: I will make a new .yaml for loading the hyperparameters
+
+
+Images:
+  FirstTrain_exp  : "./data/Images/First_Train/Experimental_data"
+  FirstTrain_syn  : "./data/Images/First_Train/Synthetic_data"
+  Correct_HumanOL : "./data/Images/Human_on_Loop/Corrected_to_Train"
+  Errored_HumanOL : "./data/Images/Human_on_Loop/Predicted_with_mistakes"
+  Unlabelled_stock: "./data/Unlabelled_Stock"
+  Stock_Images    : ""    # Add this to the location where the images are stored
+   
+Heatmaps:
+  FirstTrain_exp  : "./data/Heatmaps/First_Train/Experimental_data"
+  FirstTrain_syn  : "./data/Heatmaps/First_Train/Synthetic_data"
+  Correct_HumanOL : "./data/Heatmaps/Human_on_Loop/Corrected_to_Train"
+  Errored_HumanOL : "./data/Heatmaps/Human_on_Loop/Predicted_with_mistakes"
+  Parquet_Transfer: "./data/Heatmaps/Parquets_transfer"
+
+Trained_Models: "./model_weights"
+
+logs:
+     log_fles: "./logs"
