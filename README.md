@@ -1,14 +1,14 @@
 
 # CNN-Particle-Detection
-## Requirements
-Python       = 3.9.7 <br>
-Pytorch      = 2.0.1+cu117 (Higher versions also work, lower version is used here for compatibility with the available NVDIA GPU)<br>
-Numpy        = 1.25.2<br>
-matplotlib   = 3.4.3<br>
-pandas       = 1.3.4<br>
-(OpenCV)cv2  = 4.11.0<br>
-scipy        = 1.13.1<br>
-logging      = 0.5.1.2<br>
+## Dependencies
+Python       == 3.9.7 <br>
+Pytorch      == 2.0.1+cu117 (Higher versions also work, lower version is used here for compatibility with the available NVDIA GPU)<br>
+Numpy        == 1.25.2<br>
+matplotlib   == 3.4.3<br>
+pandas       == 1.3.4<br>
+(OpenCV)cv2  == 4.11.0<br>
+scipy        == 1.13.1<br>
+logging      == 0.5.1.2<br>
 
 ## Objective:
 This project aims to precisely detect the centers of heavily overlapping particles, which are primarily spherical. We have ongoing efforts to extend the detection to anisotropic particles and particularly towards detecting high aspect ratio rods and chains created by attaching particles flexibly, which we will soon update. Particular focus was given to ensure that the models are 'lightweight' enough to allow for fast detection while meeting the expectation of >95% accuracy.  
