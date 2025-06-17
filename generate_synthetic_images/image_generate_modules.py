@@ -70,7 +70,7 @@ def pick_xy_with_min_distance(x_choices, y_choices, num_points, min_distance):
 
 # creates overlapping circles. 
 # @ Samadarshi .... you can use this same core for squares or traingles or any other shapes
-def image_generator(outpath_path, image_size, N_particles, PtoB_ratio=0.02, packing_frac = 0.5):
+def image_generator(outpath_path, image_size, N_particles, PtoB_ratio=0.02, packing_frac = 0.5, min_dist=2)
     '''
     Generates N images of a specified size in .jpg format
     Params:
@@ -108,7 +108,7 @@ def image_generator(outpath_path, image_size, N_particles, PtoB_ratio=0.02, pack
     random_list_ = sorted(np.unique(np.array(np.linspace(-length_rand/2, length_rand/2, length_rand), dtype = int)))
     
     # develop points
-    Xx, Yy =  pick_xy_with_min_distance(random_list_, random_list_, num_points=N_particles, min_distance=3)
+    Xx, Yy =  pick_xy_with_min_distance(random_list_, random_list_, num_points=N_particles, min_distance=min_dist)
 
     # scale the coorinates to the correct size
     X = np.array(Xx)/X_frames/10
@@ -127,7 +127,39 @@ def image_generator(outpath_path, image_size, N_particles, PtoB_ratio=0.02, pack
     plt.savefig(outpath_path+'.png', dpi=X_frames/scale_)
     plt.close()
 
-    # now create the simulated response
+    # now create the simulated response .... H basically encapsulates the particle coordinates via bin indices.
     H, xedges, yedges = np.histogram2d(Yy, Xx, bins=(xedges, yedges))
 
     return Xx,Yy, np.flipud(H)
+
+# function to convert the 2D binary array into heatmap
+def binary_to_heatmap(output_path, sigma, H_val, window):
+    '''
+    Converts the 2D binary histogram into a heatmap. the 2D binaryy array contains the bins whose indices correspond the particle location
+    
+    Params: 
+        output_path: filename+location for storing the heatmap
+        sigma      : Spread of the gaussian of the heatmap
+        H_val      : The correspnding 2D binary array to create a heatmap
+        
+    Returns:
+        None
+    '''
+    
+    # window dimensions 
+    X_size = window[0]
+    Y_size = window[1]
+    
+    # resize the data into a 2D binary mask
+    binary_mask =  H_val.reshape(X_size, Y_size) # Should be shape (128, 128) with 1s at centers
+    
+    # create heatmaps 
+    heatmap = gaussian_filter(binary_mask.astype(np.float32), sigma=sigma)
+    
+    # arrest the values of teh htmap between 0 and 1 
+    heatmap = np.clip(heatmap, 0, 1)
+    
+    # save as a 2D numpy array
+    np.save(output_path +'.npy', heatmap)
+
+    return None 
