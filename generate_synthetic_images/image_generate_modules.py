@@ -70,7 +70,7 @@ def pick_xy_with_min_distance(x_choices, y_choices, num_points, min_distance):
 
 # creates overlapping circles. 
 # @ Samadarshi .... you can use this same core for squares or traingles or any other shapes
-def image_generator(outpath_path, image_size, N_particles, PtoB_ratio=0.02, packing_frac = 0.5, min_dist=2)
+def image_generator(outpath_path, image_size, N_particles, PtoB_ratio=0.02, packing_frac = 0.5, min_dist=2):
     '''
     Generates N images of a specified size in .jpg format
     Params:
