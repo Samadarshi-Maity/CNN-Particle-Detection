@@ -1,30 +1,5 @@
 
 # CNN-Particle-Detection
-
- <table width="100%" cellspacing="0" cellpadding="10">
-        <tr>
-            <!-- Left Column: Text Content -->
-            <td width="50%" valign="top">
-            Python       == 3.9.7 <br>
-            Pytorch      == 2.0.1+cu117<br>
-            Numpy        == 1.25.2<br>
-            matplotlib   == 3.4.3<br>
-            pandas       == 1.3.4<br>
-            cv2          == 4.11.0<br>
-            scipy        == 1.13.1<br>
-            logging      == 0.5.1.2<br>
-            </td>
-           
-            <td width="50%" valign="top">
-               div align="center">
-                <video class="video-container" controls width = '400'>
-                  <source src="/images/KNN_/BinaryDemixing_final.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </td>
-        </tr>
-    </table>
 ## Dependencies
 Python       == 3.9.7 <br>
 Pytorch      == 2.0.1+cu117<br>
