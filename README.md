@@ -2,7 +2,7 @@
 # CNN-Particle-Detection
 ## Dependencies
 Python       == 3.9.7 <br>
-Pytorch      == 2.0.1+cu117 (Higher versions also work, lower version is used here for compatibility with the available NVDIA GPU)<br>
+Pytorch      == 2.0.1+cu117 (Higher versions should also work, lower version is used for compatibility with our NVIDIA GPU)<br>
 Numpy        == 1.25.2<br>
 matplotlib   == 3.4.3<br>
 pandas       == 1.3.4<br>
