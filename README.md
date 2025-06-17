@@ -16,7 +16,7 @@ This project aims to precisely detect the centers of particles that are heavily 
 Traditional computer vision approaches start to reach their limits when particles show significant overlaps or are positioned inside a complex, crowded environment. Deep Learning using Convolutional Neural Networks can be an excellent alternative for such cases. They also offer higher detection accuracy and do not require "hard-tuning" several parameters, often done manually in traditional computer vision toolkits. 
 <div>
 
-![test](https://github.com/Samadarshi-Maity/CNN-Particle-Detection/raw/main/Roger_data.mp4)
+![test](https://github.com/Samadarshi-Maity/CNN-Particle-Detection/main/Roger_data.mp4)
 
 
 
