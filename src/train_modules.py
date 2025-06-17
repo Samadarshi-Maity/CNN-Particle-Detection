@@ -1,7 +1,7 @@
 # keep the modules needed for the training purposes. 
 # if sonething goes wrong .... email @ Samadarshi 
 
-# ................ import some modules ................
+# ................ import python packages ................
 import subprocess
 import numpy as np
 from tqdm import tqdm
