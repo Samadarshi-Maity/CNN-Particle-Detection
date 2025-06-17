@@ -16,9 +16,9 @@ This project aims to precisely detect the centers of particles that are heavily 
 Traditional computer vision approaches start to reach their limits when particles show significant overlaps or are positioned inside a complex, crowded environment. Deep Learning using Convolutional Neural Networks can be an excellent alternative for such cases. They also offer higher detection accuracy and do not require "hard-tuning" several parameters, often done manually in traditional computer vision toolkits. 
 
 
-<video width="100%" controls>
-    <source src="https://github.com/Samadarshi-Maity/CNN-Particle-Detection/raw/main/Images_description/Roger_data.mp4" type="video/mp4">
-</video>
+![Demo Video]([https://user-images.githubusercontent.com/username/repository/branch/demo-video.mp4](https://github.com/Samadarshi-Maity/CNN-Particle-Detection/main/Images_description/Roger_data.mp4))
+"" 
+
 
 ## Contents 
 This repository contains CNN models: <b>UNet</b> and <b>ResNet</b>, and associated modules for generating synthetic images of overlapping particles, training the CNN models, and evaluating their performance (F1, confusion, and accuracy). The training approach was developed particularly for cases where a large collection of unlabeled imaging data. We implement a semi-supervised learning approach with "human in the loop". Below is a schematic of the training approach.
