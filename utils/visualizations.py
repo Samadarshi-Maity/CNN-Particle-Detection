@@ -1,6 +1,9 @@
 # contains all the plotting functions 
+
+# import the python modules 
 import matplotlib.pyplot as plt
 import torch
+import numpy as np
 
 # Function to visualize the training process
 def visualize(model, device, dataset, index=0):
@@ -45,3 +48,25 @@ def visualize(model, device, dataset, index=0):
 
     plt.tight_layout()
     plt.show()
+
+# function to visualize the image detections 
+def visualise_detection(xlist, ylist, img, annotation_size):
+    '''
+    Annotes the objects to assist in understanding the correctly detected particles.
+    
+    Params: 
+        xlist           : list of the x coordinates
+        ylist           : list of the y coordinates
+        img             : the image that you are entering 
+        annotation_size : Annotation ring  
+    Returns: 
+        None 
+    '''
+    # create a plot
+    plt.figure(figsize = (6,6))
+    plt.imshow(np.flipud(img.squeeze()), cmap='gray')
+    plt.axis('off')
+    plt.title('Identified particles are annoted in cyan', size =18)
+    
+    # plot to correct for the edge and place the points at the center of the pixels 
+    plt.scatter(xlist+0.5, img.shape[1]-2.5-ylist, marker = 'o',facecolors='none', edgecolors='cyan', s =annotation_size )
