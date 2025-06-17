@@ -6,7 +6,7 @@ Pytorch      == 2.0.1+cu117 (Higher versions should also work, lower version is 
 Numpy        == 1.25.2<br>
 matplotlib   == 3.4.3<br>
 pandas       == 1.3.4<br>
-(OpenCV)cv2  == 4.11.0<br>
+cv2          == 4.11.0<br>
 scipy        == 1.13.1<br>
 logging      == 0.5.1.2<br>
 
