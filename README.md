@@ -14,10 +14,14 @@
             scipy        == 1.13.1<br>
             logging      == 0.5.1.2<br>
             </td>
-            <!-- Right Column: Video Embed -->
+           
             <td width="50%" valign="top">
-                <h2>Short clip of a swarm</h2>
-                <iframe width="100%" height="315" src="https://github.com/Samadarshi-Maity/CNN-Particle-Detection/raw/main/Images_description/Roger_data.avi" frameborder="0" allowfullscreen></iframe>
+               div align="center">
+                <video class="video-container" controls width = '400'>
+                  <source src="/images/KNN_/BinaryDemixing_final.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </td>
         </tr>
     </table>
