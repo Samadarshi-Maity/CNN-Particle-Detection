@@ -35,7 +35,7 @@ This repository contains CNN models: <b>UNet</b> and <b>ResNet</b>, and associat
 4. The folder subsystem for correctly placing the images and the evaluations at various stages can be directly managed using the config.YAML file. I have placed a template for such management. Please feel free to modify it as per your data locations, ensuring the correct changes are also made into each notebook.
    
 ## Results
- The following image compares the detection quality of detection using traditional computer vision methods (preprocessed in ImageJ and detected in MATLAB imaging toolkit) vs the direct (unpreprocessed) and progressively trained UNet Network. The Accuracy, Precision, F1, and Recall range between 0.5 to 0.6,   whereas the UNet-based training yields values ranging between 0.95 to 0.98.
+ The following image compares the detection quality of detection (yellow circles for detected particles) using traditional computer vision methods (preprocessed in ImageJ and detected in MATLAB imaging toolkit) vs the direct (unpreprocessed) and progressively trained UNet Network. The Accuracy, Precision, F1, and Recall range between 0.5 to 0.6, whereas the UNet-based training yields values ranging between 0.95 to 0.98.
 
 <p align="center">
 <img src="https://github.com/Samadarshi-Maity/CNN-Particle-Detection/raw/main/Images_description/improvement.svg" alt="Description of the image" style="height: 500px; width: auto;" />
