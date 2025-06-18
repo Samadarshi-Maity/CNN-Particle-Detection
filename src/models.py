@@ -86,11 +86,12 @@ class UNetHeatmap(nn.Module):
             nn.Conv2d(32, 32, kernel_size=3, padding=1), nn.ReLU()
         )
 
-        # ===== Output Layer =====
+        # Output Layer
         self.final_conv = nn.Conv2d(32, out_channels, kernel_size=1)
 
+    
     def forward(self, x):
-        # look at the comments carefully to see the dimension flow of the entire structure 
+        # Look at the comments carefully to see the dimension flow of the entire structure 
         #[batch, filters, height, width] 
         # Encoder path 
         enc1 = self.enc1(x)         # [B, 32, H, W]
@@ -112,12 +113,12 @@ class UNetHeatmap(nn.Module):
         x = self.dec1(x)            # [B, 32, H, W]
 
         x = self.final_conv(x)      # [B, out_channels, H, W]
-        return x # do not use a sigmoid here ... we will loose information of subpixel accuracy.
+        return x # do not use a sigmoid here ... we will lose information of subpixel accuracy.
     
 # define a ResNet model 
-# ..... this is still on the experimental side...... is larger but shows a similar performance as the 
+# ..... this is still on the experimental side...... is larger but shows a similar performance to the 
 
-# Build a residual block 
+# ...... Build a residual block 
 class ResidualBlock(nn.Module):
     def __init__(self, in_channels, out_channels, downsample=False):
         super().__init__()
@@ -149,7 +150,7 @@ class ResNetHeatmap(nn.Module):
         super().__init__()
         self.in_channels = 64
 
-        # Stem
+        # ......Stem
         self.stem = nn.Sequential(
             nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3),
             nn.BatchNorm2d(64),
@@ -157,12 +158,12 @@ class ResNetHeatmap(nn.Module):
             nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
         )
 
-        # Encoder
+        # ...... Encoder
         self.layer1 = self._make_layer(64, 2, downsample=False)
         self.layer2 = self._make_layer(128, 2, downsample=True)
         self.layer3 = self._make_layer(256, 2, downsample=True)
 
-        # Decoder (Upsampling layers inline)
+        # ....... Decoder (Upsampling layers inline)
         self.up1 = nn.Sequential(
             nn.ConvTranspose2d(256, 128, kernel_size=2, stride=2),
             nn.BatchNorm2d(128),
@@ -187,6 +188,7 @@ class ResNetHeatmap(nn.Module):
         # Final layer (no sigmoid)
         self.out = nn.Conv2d(16, out_channels, kernel_size=1)
 
+    # ......... Build the residual block
     def _make_layer(self, out_channels, blocks, downsample):
         layers = [ResidualBlock(self.in_channels, out_channels, downsample)]
         self.in_channels = out_channels
@@ -194,6 +196,7 @@ class ResNetHeatmap(nn.Module):
             layers.append(ResidualBlock(out_channels, out_channels))
         return nn.Sequential(*layers)
 
+    # .......... connect the layers
     def forward(self, x):
         x = self.stem(x)
         x = self.layer1(x)
@@ -205,5 +208,5 @@ class ResNetHeatmap(nn.Module):
         x = self.up3(x)
         x = self.up4(x)
 
-        x = self.out(x)  # raw logits
+        x = self.out(x) 
         return x
