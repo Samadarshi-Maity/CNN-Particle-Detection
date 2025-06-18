@@ -21,7 +21,7 @@ Traditional computer vision approaches for detecting particles often reach their
 
 
 ## Contents 
-This repository contains CNN models: <b>UNet</b> and <b>ResNet</b>, and associated modules for generating synthetic images of overlapping particles, training the CNN models, and evaluating their performance (F1, confusion, and accuracy). The training approach was developed particularly for cases where a large collection of unlabeled imaging data. We implement a semi-supervised learning approach with "human in the loop". Below is a schematic of the training approach.
+This repository contains CNN models: <b>UNet</b> and <b>ResNet</b>, and associated modules for generating synthetic images of overlapping particles, training the CNN models, and evaluating their performance (F1, confusion, and accuracy). The training approach was developed particularly for cases where a large collection of unlabeled imaging data is available. We implement a semi-supervised learning approach with "human in the loop". Below is a schematic of the training approach.
 <p align="center">
 <img src="https://github.com/Samadarshi-Maity/CNN-Particle-Detection/raw/main/Images_description/Training_CNN.svg" alt="Description of the image" style="height: 400px; width: auto;" />
 </p>
