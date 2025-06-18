@@ -26,7 +26,9 @@ This repository contains CNN models: <b>UNet</b> and <b>ResNet</b>, and associat
 <img src="https://github.com/Samadarshi-Maity/CNN-Particle-Detection/raw/main/Images_description/Training_CNN.svg" alt="Description of the image" style="height: 400px; width: auto;" />
 </p>
 
-1. The synthetic images are randomly combined with the experimental data for the first training cycle, after which we can train purely on the annotated experimental data. The training steps are detailed in "training.ipynb" notebook. The associated classes and functions in train_modules.py and the models (UNet and ResNet) are located in " models.py" within src. 
+### Usage
+The package consists of Jupyter notebooks that can be run after correctly modifying (if necessary) the filepath to the preferred data sources/destinations and adjusting to the desired parameters for the entire training cycle after directly cloning this repository. 
+1. The synthetic images are randomly combined with the experimental data for the first training cycle, after which we can train purely on the annotated experimental data. The training steps are detailed in the "training.ipynb" notebook. The associated classes and functions in train_modules.py and the models (UNet and ResNet) are located in " models.py" within src. 
   
 2. After the first training, we can evaluate the performance of the model by using the sample code presented in the "Prediction.ipynb" notebook, where we can extract particle coordinates from the images. It contains the functions to compute the metrics (F1, accuracy, precision, and recall) redefined for this task, and visualize the predictions, and the associated classes and functions are positioned within the utils subfolder. 
 
