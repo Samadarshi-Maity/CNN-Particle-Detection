@@ -9,7 +9,7 @@ Images:
   Correct_HumanOL : "./data/Images/Human_on_Loop/Corrected_to_Train"
   Errored_HumanOL : "./data/Images/Human_on_Loop/Predicted_with_mistakes"
   Unlabelled_stock: "./data/Unlabelled_Stock"
-  Stock_Images    : ""    # Add this to the location where the images are stored
+  Stock_Images    : ""    # Add this to the location where the unlabelled images are stored
    
 Heatmaps:
   FirstTrain_exp  : "./data/Heatmaps/First_Train/Experimental_data"
