@@ -42,5 +42,7 @@ The package consists of Jupyter notebooks that can be run after correctly modify
 <p align="center">
 <img src="https://github.com/Samadarshi-Maity/CNN-Particle-Detection/raw/main/Images_description/improvement.svg" alt="Description of the image" style="height: 500px; width: auto;" />
 </p>
-
+## Authors: 
+Samadarshi Maity
+Sander Kammeraat
 
