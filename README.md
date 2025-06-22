@@ -12,7 +12,7 @@ scipy        == 1.13.1<br>
 logging      == 0.5.1.2<br>
  (More recent torch versions should also work; a lower version is used for compatibility with our NVIDIA GPU)
 ## Objective:
-This project aims to precisely detect the centers of swarming particles that are heavily overlapping, which are primarily spherical. We are currently working on extending the detection to anisotropic particles, with a particular focus on detecting high aspect ratio rods and chains formed by attaching particles flexibly, which we will soon update. Particular focus was given to ensure that the models are 'lightweight' enough to allow for fast detection while meeting the expectation of >95% accuracy.  
+This project aims to precisely detect the centers of swarming particles that are heavily overlapping, which are primarily spherical. We employ convolutional neural networks via heatmap regression to detect the particle centers. We are currently working on extending the detection to anisotropic particles, with a particular focus on detecting high aspect ratio rods and chains formed by attaching particles flexibly, which we will soon update. Particular focus was given to ensure that the models are 'lightweight' enough to allow for fast detection while meeting the expectation of >95% accuracy.  
 
 Please click the link below to watch a short clip of the swarming particles. Videos of other types of swarms are present on my website. 
 ![click here to download an short clip of the swarming particles](https://github.com/Samadarshi-Maity/CNN-Particle-Detection/raw/main/Roger_data.mp4)
