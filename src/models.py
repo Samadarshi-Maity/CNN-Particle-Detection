@@ -75,8 +75,8 @@ class UNetHeatmap(nn.Module):
         x = self.final_conv(x)      # [B, out_channels, H, W]
         return x # do not use a sigmoid here ... we will lose information here 
     
-# define a ResNet model 
-# ..... this is still on the experimental side...... is larger but shows a similar performance to the 
+# ................................... define a ResNet model .................................................... 
+# ..... this is still on the experimental side...... is larger but shows a similar performance to the UNet Model  
 
 # ...... Build a residual block 
 class ResidualBlock(nn.Module):
