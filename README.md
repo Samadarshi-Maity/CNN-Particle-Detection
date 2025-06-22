@@ -4,6 +4,7 @@
 ## Dependencies
 Python       == 3.9.7 <br>
 Pytorch      == 2.0.1+cu117<br>
+Torchvision  == 0.14.1
 Numpy        == 1.25.2<br>
 matplotlib   == 3.4.3<br>
 pandas       == 1.3.4<br>
