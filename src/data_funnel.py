@@ -2,8 +2,8 @@
 import torch
 import cv2
 import numpy as np
-
-class ParticleDataset():
+from torch.utils.data import Dataset
+class ParticleDataset(Dataset):
     '''
     Class: To read the images and pass it into the dataloader for pytorch.
     Since the images are sequences of moving particles, we shuffle the frames 
