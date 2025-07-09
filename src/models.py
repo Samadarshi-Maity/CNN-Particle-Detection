@@ -2,7 +2,7 @@
 import torch
 from torch import nn
 
-# ................... define the UNet Model .........................
+# ................... define the UNet Model ........................
 class UNetHeatmap(nn.Module):
     """
     UNet model for center detection via heatmap regression for overlapping particles.
