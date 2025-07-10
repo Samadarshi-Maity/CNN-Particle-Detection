@@ -1,19 +1,14 @@
-# keep the modules needed for the training purposes. 
-# if sonething goes wrong .... email @ Samadarshi 
-
 # ................ import python packages ................
 import subprocess
-import numpy as np
 from tqdm import tqdm
 import torch
 from torch import nn
-import matplotlib.pyplot as plt
         
         
 # Function to train the model step by step .............
-def train_model(model, train_loader, val_loader=None, epochs=10, lr=1e-3):
-    '''
-    Function that encapsulates all the training steps into a single module
+def train_model(model, train_loader, val_loader=None, epochs=15, lr=1e-3): 
+    """
+    Function that encapsulates all the training steps and protocols into a single place.
     
     Params: 
         model        : The CNN models that are to be trained
@@ -23,14 +18,14 @@ def train_model(model, train_loader, val_loader=None, epochs=10, lr=1e-3):
         lr           : learning rate 
     Returns:
         model        : returns the 'trained' CNN model 
-    '''
+    """
     
     # ...........set the device to GPU if it is available otherwise set it to cpu  .... 
     # ..... if the GPU is detected then this code should be able to operate on the GPU .... check the log file for this 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = model.to(device)
 
-    # Intantiate the optimizer ..... Adam is heavy but does the best job. 
+    # Instantiate the optimizer ..... Adam optimizer is heavy, but it does the best job. 
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
     
     # MSE loss function since we perform a heatmap regression
