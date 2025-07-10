@@ -3,8 +3,10 @@ import torch
 import cv2
 import numpy as np
 from torch.utils.data import Dataset
+
+# define the class to load the data
 class ParticleDataset(Dataset):
-    '''
+    """
     Class: To read the images and pass it into the dataloader for pytorch.
     Since the images are sequences of moving particles, we shuffle the frames 
     to prevent the NN from learning the physics of the trajectories and purely focus
@@ -13,18 +15,18 @@ class ParticleDataset(Dataset):
     ** NOTE: The shuffle is done on the index to maintain the pair of image and its 
              corresponding Heatmap.    
     
-    Params: 
-        Dataset: takes 1. the image directory path 2. the heatmap directory  
-        
-    Returns: 
-        img: (shuffled sequence)
-        heatmap: (the corresponding heatmap of the image)
+    """
     
-    '''
-    
-    def __init__(self, img_paths_, heatmap_paths_):
-        self.img_paths = img_paths_
-        self.heatmap_paths = heatmap_paths_
+    def __init__(self, img_paths, heatmap_paths):
+        """
+        Constructor for procuring the list of paths for the image and heatmaps data
+
+        Params:
+            img_paths (list)      : list of paths for the images of train/test/validation set
+            heatmap_paths (list)  : list of paths for the heatmaps of train/test/validation set
+        """
+        self.img_paths = img_paths
+        self.heatmap_paths = heatmap_paths
 
     def __len__(self):
         return len(self.img_paths)
