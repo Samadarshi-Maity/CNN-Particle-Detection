@@ -21,7 +21,7 @@ class UNetHeatmap(nn.Module):
         self.out_channels = out_channels
         
         # Initialize parent class to set up inherited attributes. 
-        # Extremely necessary for registering modules and internal data structures.
+        # Necessary for parameter tracking 
         super().__init__()
         
         # Encoder section 
@@ -114,6 +114,7 @@ class ResidualBlock(nn.Module):
             out_channels (int): number of output channels in the heatmap
         """
         # Initialize parent class to set up inherited attributes.
+        # Necessary for parameter tracking 
         super().__init__()
 
         # define the instance data  channels
