@@ -19,7 +19,7 @@ class ParticleDataset(Dataset):
     
     def __init__(self, img_paths, heatmap_paths):
         """
-        Constructor for procuring the list of paths for the image and heatmaps data
+        Initiator for procuring the list of paths for the image and heatmaps data
 
         Params:
             img_paths (list)      : list of paths for the images of train/test/validation set
