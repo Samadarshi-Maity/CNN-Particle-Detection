@@ -19,7 +19,7 @@ class CNNModelTester:
     
     def __init__(self, image_path, heatmap_path, batch, model:nn.Module):
         """
-        Constructor for the CNNModeltester class. Initialises the model and the log files 
+        initiator for the CNNModeltester class. Initialises the model and the log files 
 
         Params 
         image_path (str)   : path to the image directory
