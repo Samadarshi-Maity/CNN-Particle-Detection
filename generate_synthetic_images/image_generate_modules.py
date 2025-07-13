@@ -23,7 +23,7 @@ def gen_path(folder, N_images):
         N_images  : number of images
     Returns: 
         path_list : a list containing paths(names) for each image.
-    '''
+    """
     path_list = [(folder + '\\' +str(n).zfill(6)) for n in range(N_images)]
     return path_list   
 
