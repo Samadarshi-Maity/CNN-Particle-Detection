@@ -16,7 +16,7 @@ import scipy
 
 # create a for loop for geerating the images
 def gen_path(folder, N_images):
-    '''
+    """
     This function is used to create path list for the images
     Params:
         folder    : path to the folder to save the data
