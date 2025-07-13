@@ -10,7 +10,7 @@ class UNetHeatmap(nn.Module):
     """
     def __init__(self, in_channels=1, out_channels=1):
         """
-        Defines the constructor for designing the Unet model 
+        Defines the initiation for designing the Unet model 
 
         Params: 
             in_channels  (int): number of channels in the image   
@@ -108,7 +108,7 @@ class ResidualBlock(nn.Module):
     """
     def __init__(self, in_channels, out_channels, downsample=False):
         """
-        Define the constructor for the residual block
+        Defines the residual block
         Params: 
             in_channels  (int): number of channels in the image   
             out_channels (int): number of output channels in the heatmap
