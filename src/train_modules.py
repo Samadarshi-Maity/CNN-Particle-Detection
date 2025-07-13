@@ -3,6 +3,7 @@ import subprocess
 from tqdm import tqdm
 import torch
 from torch import nn
+import torch.optim as optim
         
         
 # Function to train the model step by step .............
@@ -25,8 +26,8 @@ def train_model(model, train_loader, val_loader=None, epochs=15, lr=1e-3):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = model.to(device)
 
-    # Instantiate the optimizer ..... Adam optimizer is heavy, but it does the best job. 
-    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+    # Instantiate the optimizer ..... AdamW optimizer is heavy, but it does the best job. 
+    optimizer = optim.AdamW(model.parameters(), lr=lr, weight_decay=0.0001)
     
     # MSE loss function since we perform a heatmap regression
     loss_fn = nn.MSELoss()
@@ -89,4 +90,4 @@ def train_model(model, train_loader, val_loader=None, epochs=15, lr=1e-3):
         else:
             print(f"Epoch {epoch+1}/{epochs} || Train Loss: {avg_train_loss:.4f}")
 
-    return model
+    return model, optimizer
