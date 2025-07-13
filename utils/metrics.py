@@ -51,7 +51,7 @@ class metrics:
         Computes the confusion matrix using the aforementioned defintions
         '''
         # computes the True Positives
-        count = len(np.where((self.distances.flatten()<2) & (self.distances.flatten()>0))[0])
+        count = len(np.where(self.distances.flatten()<2)[0])
 
         # false Positives
         FP  = len(self.x_coord) - count
