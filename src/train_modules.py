@@ -7,27 +7,27 @@ import torch.optim as optim
         
         
 # Function to train the model step by step .............
-def train_model(model, train_loader, val_loader=None, epochs=15, lr=1e-3): 
+def train_model(model, train_loader, val_loader=None, epochs=15, lr=1e-3, weight_decay=0.0001): 
     """
     Function that encapsulates all the training steps and protocols into a single place.
     
     Params: 
-        model        : The CNN models that are to be trained
-        train_loader : Pytorch dataloader for loader for loading the training data.
-        val_loader   : Loads the validation dataset. 
-        epochs       : no. of training cycles
-        lr           : learning rate 
+        model (nn.Module)       : The CNN models that are to be trained
+        train_loader(iterable)  : Pytorch dataloader for loader for loading the training data.
+        val_loader(iterable)    : Loads the validation dataset. 
+        epochs (int)            : no. of training cycles
+        lr(float)               : learning rate 
     Returns:
-        model        : returns the 'trained' CNN model 
+        model(nn.Module)        : returns the 'trained' CNN model 
     """
     
-    # ...........set the device to GPU if it is available otherwise set it to cpu  .... 
+    # ...........set the device to GPU if it is available otherwise set it to cpu 
     # ..... if the GPU is detected then this code should be able to operate on the GPU .... check the log file for this 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = model.to(device)
 
     # Instantiate the optimizer ..... AdamW optimizer is heavy, but it does the best job. 
-    optimizer = optim.AdamW(model.parameters(), lr=lr, weight_decay=0.0001)
+    optimizer = optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
     
     # MSE loss function since we perform a heatmap regression
     loss_fn = nn.MSELoss()
