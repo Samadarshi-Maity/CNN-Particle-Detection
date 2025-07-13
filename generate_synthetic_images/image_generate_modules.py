@@ -71,7 +71,7 @@ def pick_xy_with_min_distance(x_choices, y_choices, num_points, min_distance):
 # creates overlapping circles. 
 # @ Samadarshi .... you can use this same core for squares or traingles or any other shapes
 def image_generator(outpath_path, image_size, N_particles, PtoB_ratio=0.02, packing_frac = 0.5, min_dist=2):
-    '''
+    """
     Generates N images of a specified size in .jpg format
     Params:
         output_path  : list of the location+name (paths) to save the each image generated 
@@ -84,7 +84,7 @@ def image_generator(outpath_path, image_size, N_particles, PtoB_ratio=0.02, pack
         Xx: array of x coordinates
         Yy: array of y coordinates
         H : 2D logistic map of pixels with 0 if no particle is located and 1 otherwise
-    '''
+    """
     # define the frame dimensions
     X_frames = image_size[0]
     Y_frames = image_size[1]
@@ -134,7 +134,7 @@ def image_generator(outpath_path, image_size, N_particles, PtoB_ratio=0.02, pack
 
 # function to convert the 2D binary array into heatmap
 def binary_to_heatmap(output_path, sigma, H_val, window):
-    '''
+    """
     Converts the 2D binary histogram into a heatmap. the 2D binaryy array contains the bins whose indices correspond the particle location
     
     Params: 
@@ -144,7 +144,7 @@ def binary_to_heatmap(output_path, sigma, H_val, window):
         
     Returns:
         None
-    '''
+    """
     
     # window dimensions 
     X_size = window[0]
