@@ -6,5 +6,4 @@ setup(
     description="A deep learning toolkit for heatmap regression",
     author="Samadarshi Maity",
     packages=find_packages(),
-    #install_requires=["torch", "opencv-python", "matplotlib"],
 )
